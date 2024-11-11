@@ -8,9 +8,9 @@ class AppView extends StatelessWidget {
     return Scaffold(
       appBar: _appBarWidget(),
 
-      // iki seçenek var, buttonnavigationbar material2.0 eski görünüm, NavigationBar yeni görünüm
+      //!! iki seçenek var, buttonnavigationbar material2.0 eski görünüm, NavigationBar yeni görünüm
       bottomNavigationBar: NavigationBar(
-        indicatorColor: Colors.transparent,
+        indicatorColor: Colors.transparent, // sanırım seçili kısım
         destinations: const [
           NavigationDestination(icon: Icon(Icons.face), label: 'Karakterler'),
           NavigationDestination(icon: Icon(Icons.bookmark), label: 'Favorilerim'),
