@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/app/router.dart';
 import 'package:rickandmorty/app/theme.dart';
-import 'package:rickandmorty/views/app_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -14,8 +13,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       routerConfig: router,
-     
-      
     );
   }
 }

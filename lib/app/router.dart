@@ -30,8 +30,8 @@ final router = GoRouter(
               builder: (context, state) => const CharactersView()
              )
           ]
-          
         ),
+
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -39,8 +39,8 @@ final router = GoRouter(
               builder: (context, state) => const FavouritesView()
              )
           ]
-          
         ),
+
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -48,8 +48,8 @@ final router = GoRouter(
               builder: (context, state) => const LocationsView()
              )
           ]
-          
         ),
+
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -57,7 +57,6 @@ final router = GoRouter(
               builder: (context, state) => const SectionsView()
              )
           ]
-          
         )
       ]
     ),
