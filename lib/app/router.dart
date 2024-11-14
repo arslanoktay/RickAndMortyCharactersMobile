@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rickandmorty/views/app_view.dart';
-import 'package:rickandmorty/views/characters_view/characters_view.dart';
-import 'package:rickandmorty/views/favourites_view/favourites_view.dart';
-import 'package:rickandmorty/views/locations_view.dart/locations_view.dart';
-import 'package:rickandmorty/views/sections_view/sections_view.dart';
+import 'package:rickandmorty/views/screens/characters_view/characters_view.dart';
+import 'package:rickandmorty/views/screens/favourites_view/favourites_view.dart';
+import 'package:rickandmorty/views/screens/locations_view.dart/locations_view.dart';
+import 'package:rickandmorty/views/screens/sections_view/sections_view.dart';
 
 final _routerKey = GlobalKey<NavigatorState>();
 

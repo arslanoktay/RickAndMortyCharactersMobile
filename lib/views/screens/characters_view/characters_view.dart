@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:rickandmorty/views/widgets/character_cardview.dart';
 
 class CharactersView extends StatelessWidget {
   const CharactersView({super.key});
@@ -9,23 +9,24 @@ class CharactersView extends StatelessWidget {
     return  Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 17),
+          padding: const EdgeInsets.symmetric(horizontal: 9),
           child: Column( // alt alta geleceği için
             children: [
               _searchInputWidget(context),
-              Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: BorderRadius.circular(6)
-                ),
-                child: Row(
-                  children: [
-                    Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9hTWc3Ak2YM7wo6D5RItxI_3jIWipI6lYUQ&s') // doğru image değil ölçeklendirme hatası olabilir sayfaya bağlanmıyor
-                  ],
-                ),
-              )
+               const CharacterCardView(
+                image: 'https://rickandmortyapi.com/api/character/avatar/320.jpeg',
+                name: 'Rick Sanchez',
+                origin: 'Earth - (C137)',
+                status: 'Yaşıyor',
+                type: 'İnsan' 
+               ),
+               const CharacterCardView(
+                image: 'https://rickandmortyapi.com/api/character/avatar/320.jpeg',
+                name: 'Rick Sanchez',
+                origin: 'Earth - (C137)',
+                status: 'Yaşıyor',
+                type: 'İnsan' 
+               )
             ],
           ),
         ),
