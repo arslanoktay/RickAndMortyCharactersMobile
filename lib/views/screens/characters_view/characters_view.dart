@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rickandmorty/views/screens/characters_view/charactgers_viewmodel.dart';
+import 'package:rickandmorty/views/widgets/character_cardlistview.dart';
 import 'package:rickandmorty/views/widgets/character_cardview.dart';
 
-class CharactersView extends StatelessWidget {
+class CharactersView extends StatefulWidget {
   const CharactersView({super.key});
 
   @override
+  State<StatefulWidget> createState() => _CharactersViewState();
+
+ 
+}
+
+class _CharactersViewState extends State<CharactersView> {
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<CharactgersViewmodel>().getCharacters();
+  }
+
+   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Center(
@@ -13,20 +30,16 @@ class CharactersView extends StatelessWidget {
           child: Column( // alt alta geleceği için
             children: [
               _searchInputWidget(context),
-               const CharacterCardView(
-                image: 'https://rickandmortyapi.com/api/character/avatar/320.jpeg',
-                name: 'Rick Sanchez',
-                origin: 'Earth - (C137)',
-                status: 'Yaşıyor',
-                type: 'İnsan' 
-               ),
-               const CharacterCardView(
-                image: 'https://rickandmortyapi.com/api/character/avatar/320.jpeg',
-                name: 'Rick Sanchez',
-                origin: 'Earth - (C137)',
-                status: 'Yaşıyor',
-                type: 'İnsan' 
-               )
+               Consumer<CharactgersViewmodel>(builder: (context, viewModel,child) {
+                if (viewModel.characterModel == null) { // eğer karakter gelmemişse yükleme ekranı göster
+                  return const CircularProgressIndicator.adaptive(); // ios için .adaptive sona eklenebiilir
+                }else {
+                  return CharacterCardlistview(
+                    characters: viewModel.characterModel!.characters,
+                    onLoadMore: () => viewModel.getCharacterMore(),
+                  ); // listview yerine builder seçme neeni veri artarsa listview kasıyor ancak builder geride kalan veriyi siler böylece daha performanslı çalışır
+                }
+               },)
             ],
           ),
         ),

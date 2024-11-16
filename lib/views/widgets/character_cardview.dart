@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/models/characters_model.dart';
 
 class CharacterCardView extends StatelessWidget {
-  final String image;
-  final String name;
-  final String origin;
-  final String status;
-  final String type;
+  final CharacterModel characterModel;
 
-  const CharacterCardView({super.key, required this.image, required this.name, required this.origin, required this.status, required this.type});
+  const CharacterCardView({super.key, required this.characterModel});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,7 @@ class CharacterCardView extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(6),
                             child: Image.network(
-                              image,
+                              characterModel.image,
                               height: 100,
                             ) // doğru image değil ölçeklendirme hatası olabilir sayfaya bağlanmıyor
                           ),
@@ -36,14 +33,14 @@ class CharacterCardView extends StatelessWidget {
                             child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                     Text(name, style: const TextStyle(
+                                     Text(characterModel.name, style: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     )),
                                     const SizedBox(height: 5,),
-                                    _infoWidget(typeFirst: 'Köken', value: origin),
+                                    _infoWidget(typeFirst: 'Köken', value: characterModel.species),
                                     const SizedBox(height: 4,),
-                                    _infoWidget(typeFirst: 'Durum', value: '$status - $type')
+                                    _infoWidget(typeFirst: 'Durum', value: '${characterModel.status} - ${characterModel.species}')
                                   ],
                                 ),
                           )

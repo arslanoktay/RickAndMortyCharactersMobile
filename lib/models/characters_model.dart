@@ -1,6 +1,6 @@
 // karşılayacak hepsini kapsayan class
 class CharactersModel {
-  final CharacterInfo info;
+  CharacterInfo info;
   final List<CharacterModel> characters;
 
   CharactersModel({required this.info, required this.characters});
