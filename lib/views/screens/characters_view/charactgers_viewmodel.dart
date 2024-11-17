@@ -15,6 +15,12 @@ class CharactgersViewmodel extends ChangeNotifier { // changenotifer metotlar su
     _charactersModel = await _apiService.getCharacters();
     notifyListeners();
    }
+
+   void clearCharacters() {
+    _charactersModel = null;
+    currentPageIndex = 1; // aramadan sonra inilen sayfa adedi 0 lanır
+    notifyListeners();
+   }
    
    bool loadMore = false;
    int currentPageIndex = 1;
@@ -41,6 +47,12 @@ class CharactgersViewmodel extends ChangeNotifier { // changenotifer metotlar su
     _charactersModel!.info = data.info;
     _charactersModel!.characters.addAll(data.characters); // sona yeni gelenleri ekleyecek
      notifyListeners();
+  }
+
+  void getCharactersByName(String name) async {
+    clearCharacters();
+    _charactersModel = await _apiService.getCharacters(args: {'name':name});
+    notifyListeners();
   }
 
 }

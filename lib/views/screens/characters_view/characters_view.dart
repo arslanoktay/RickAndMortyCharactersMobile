@@ -22,24 +22,21 @@ class _CharactersViewState extends State<CharactersView> {
 
    @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<CharactgersViewmodel>(); // kullanılacak yerin consumer altında kaldığı için buradan izlemek gerekiyor
     return  Scaffold(
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 9),
           child: Column( // alt alta geleceği için
             children: [
-              _searchInputWidget(context),
-               Consumer<CharactgersViewmodel>(builder: (context, viewModel,child) {
-                if (viewModel.characterModel == null) { // eğer karakter gelmemişse yükleme ekranı göster
-                  return const CircularProgressIndicator.adaptive(); // ios için .adaptive sona eklenebiilir
-                }else {
-                  return CharacterCardlistview(
-                    characters: viewModel.characterModel!.characters,
-                    onLoadMore: () => viewModel.getCharacterMore(),
-                    loadMore: viewModel.loadMore,
-                  ); // listview yerine builder seçme neeni veri artarsa listview kasıyor ancak builder geride kalan veriyi siler böylece daha performanslı çalışır
-                }
-               },)
+              _searchInputWidget(context, viewModel: viewModel),
+              viewModel.characterModel == null
+                ? const CircularProgressIndicator.adaptive()
+                : CharacterCardlistview(
+                  characters: viewModel.characterModel!.characters, 
+                  onLoadMore: () => viewModel.getCharacterMore,
+                  loadMore: viewModel.loadMore,
+                )
             ],
           ),
         ),
@@ -47,14 +44,12 @@ class _CharactersViewState extends State<CharactersView> {
     );
   }
 
-  Padding _searchInputWidget(BuildContext context) {
+  Padding _searchInputWidget(BuildContext context, {required CharactgersViewmodel viewModel}) {
     return Padding(
               padding: const EdgeInsets.only(top: 12,bottom: 16),
               child: TextFormField( // Arama yeri / arama yapabilmek için textformfield oldu
                 textInputAction: TextInputAction.search, // sağ alttaki icon buna göre belirleyecek
-                onFieldSubmitted: (value) {
-                  
-                },
+                onFieldSubmitted: viewModel.getCharactersByName, // TODO: buradaki parametre nasıl bağlanıyor?
                 decoration: InputDecoration(
                   hintText: "Karakterlerde Ara",
                   hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
