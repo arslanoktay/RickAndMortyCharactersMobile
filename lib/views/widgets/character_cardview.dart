@@ -47,9 +47,12 @@ class _CharacterCardViewState extends State<CharacterCardView> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(6),
-                              child: Image.network(
-                                widget.characterModel.image,
-                                height: 100,
+                              child: Hero(
+                                tag:  widget.characterModel.image,
+                                child: Image.network(
+                                  widget.characterModel.image,
+                                  height: 100,
+                                ),
                               ) // doğru image değil ölçeklendirme hatası olabilir sayfaya bağlanmıyor
                             ),
                              Padding(
