@@ -8,7 +8,6 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
       body: navigationShell, // Seçili navigationbardan gelen konacak(path den gelen view)
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData( // Navigation bar text dinamik renk değiştirmesi buradan sağlanıyor
@@ -71,19 +70,5 @@ class AppView extends StatelessWidget {
     );
   }
 
-  AppBar _appBarWidget() {
-    return AppBar(
-      title: const Text(
-        'Rick and Morty', 
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.w500
-        ),
-        ),
-        // Text sonrası rowda gösterilen widgetler. Genelde Iconbutton, popupmenu vb.
-        actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.settings)) // the button ıcondan rengi geliyor
-        ],
-    );
-  }
+ 
 }
