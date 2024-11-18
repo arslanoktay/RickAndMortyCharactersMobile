@@ -4,6 +4,7 @@ import 'package:rickandmorty/models/characters_model.dart';
 import 'package:rickandmorty/models/episode_model.dart';
 import 'package:rickandmorty/views/screens/character_profile_view/character_profile_viewmodel.dart';
 import 'package:rickandmorty/views/widgets/appbar_widget.dart';
+import 'package:rickandmorty/views/widgets/decorated_container.dart';
 
 class CharacterProfileView extends StatefulWidget {
   final CharacterModel characterModel;
@@ -27,14 +28,7 @@ class _CharacterProfileViewState extends State<CharacterProfileView> {
       child: Scaffold(
         extendBodyBehindAppBar: true, // backgroundimage appbar da kaplasın diye true yapıldı
         appBar: const AppbarWidget(title: 'Karakter', transparentBackground: true,),
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/backgroundRickandMorty.png'),
-              alignment: Alignment.topCenter,
-              fit: BoxFit.fitWidth
-            )
-          ),
+        body: DecoratedContainer(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch, // ters açıyı kaplamasını sağlar
             children: [

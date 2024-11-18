@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:rickandmorty/models/characters_model.dart';
 import 'package:rickandmorty/models/episode_model.dart';
+import 'package:rickandmorty/models/location_model.dart';
 
 class ApiService {
     final _dio = Dio(BaseOptions(baseUrl: 'https://rickandmortyapi.com/api'));
@@ -35,6 +36,16 @@ class ApiService {
         return (response.data as List)
                 .map((e) => EpisodeModel.fromMap(e))
                 .toList();
+      } catch (e) {
+        rethrow;
+      }
+    }
+
+    Future<LocationModel> getAllLocations() async {
+      try {
+        final response = await _dio.get('/location');
+        return LocationModel.fromJson(response.data);
+
       } catch (e) {
         rethrow;
       }

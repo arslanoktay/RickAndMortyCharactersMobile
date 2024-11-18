@@ -1,13 +1,15 @@
 // karşılayacak hepsini kapsayan class
+import 'package:rickandmorty/models/info_model.dart';
+
 class CharactersModel {
-  CharacterInfo info;
+  InfoModel info;
   final List<CharacterModel> characters;
 
   CharactersModel({required this.info, required this.characters});
   
   // ctor kendini döndürüyorsa factory'dir
   factory CharactersModel.fromJson(Map<String, dynamic> json) {
-    final info = CharacterInfo.fromJson(json["info"]);
+    final info = InfoModel.fromJson(json["info"]);
     final characters = (json['results'] as List).map(
       (characterJson) => CharacterModel.fromJson(characterJson),
      ).toList();
@@ -15,22 +17,6 @@ class CharactersModel {
      return CharactersModel(info: info, characters: characters);
   }
      
-}
-
-class CharacterInfo {
-  final int count;
-  final int pages;
-  final String? next;
-  final String? prev;
-
-  CharacterInfo({required this.count, required this.pages, required this.next, required this.prev});
-
-  // json formatını nesneye dönüştürecek kod / bize json map<string,dynmaic> olarak gelecek / factory ile de yeni nesne döndürecek şekilde yazılabiliyor
-  CharacterInfo.fromJson(Map<String,dynamic> json):
-    count = json['count'],
-    pages = json['pages'],
-    next = json['next'],
-    prev = json['prev'];
 }
 
 class CharacterModel {

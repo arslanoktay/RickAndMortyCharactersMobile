@@ -31,7 +31,7 @@ class _CharacterCardListViewState extends State<CharacterCardlistview> {
 
   void _setLoading(bool value) {
     _isLoading = value;
-    setState(() {}); // TODO: serttate tam olarak ne işe yarıyor
+    setState(() {}); // TODO: setState tam olarak ne işe yarıyor
   }
 
   void _getFavorites() async {
