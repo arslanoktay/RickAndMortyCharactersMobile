@@ -21,5 +21,4 @@ class FavoritesViewmodel extends ChangeNotifier {
     _characterModel = await _apiService.getMultipleCharacters(_favorites);
     notifyListeners();
   }
-
 }

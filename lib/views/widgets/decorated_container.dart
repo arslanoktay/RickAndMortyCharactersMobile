@@ -8,12 +8,10 @@ class DecoratedContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-            image: DecorationImage(
+          image: DecorationImage(
               image: AssetImage('assets/images/backgroundRickandMorty.png'),
               alignment: Alignment.topCenter,
-              fit: BoxFit.fitWidth
-            )
-      ),
+              fit: BoxFit.fitWidth)),
       child: child,
     );
   }

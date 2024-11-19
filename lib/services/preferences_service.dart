@@ -15,7 +15,7 @@ class PreferencesService {
     charactersList.add(id.toString());
     storeCharacters(charactersList); // kaydetme kısmı
   }
-  
+
   void removeCharacter(int id) async {
     final charactersList = prefs.getStringList(_characterKey) ?? [];
     charactersList.remove(id.toString());

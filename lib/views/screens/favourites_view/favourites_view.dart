@@ -12,7 +12,6 @@ class FavouritesView extends StatefulWidget {
 }
 
 class _FavouritesViewState extends State<FavouritesView> {
-
   @override
   void initState() {
     super.initState();
@@ -22,18 +21,18 @@ class _FavouritesViewState extends State<FavouritesView> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<FavoritesViewmodel>();
-    return  Scaffold(
+    return Scaffold(
       appBar: const AppbarWidget(title: 'Favorilerim'),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: viewModel.charactersList.isEmpty 
-          ? const CircularProgressIndicator.adaptive() 
-          : Column(
-            children: [
-              CharacterCardlistview(characters: viewModel.charactersList)
-            ],
-          ),
+          child: viewModel.charactersList.isEmpty
+              ? const CircularProgressIndicator.adaptive()
+              : Column(
+                  children: [
+                    CharacterCardlistview(characters: viewModel.charactersList)
+                  ],
+                ),
         ),
       ),
     );

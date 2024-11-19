@@ -11,16 +11,14 @@ class LocationsView extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true, // background resmi appbar arkasına taşır
-        body: DecoratedContainer(
-          child: Text("Yapılacak")
-        ),
+        body: DecoratedContainer(child: Text("Yapılacak")),
       ),
     );
   }
 
   // Flexible _locationListView() {
   //   return Flexible(
-  //                     child: Consumer<LocationViewmodel>(builder: (context, viewModel, child) { 
+  //                     child: Consumer<LocationViewmodel>(builder: (context, viewModel, child) {
   //                       return ListView.separated(
   //                         padding: EdgeInsets.zero,
   //                         itemCount: 0,
@@ -33,7 +31,7 @@ class LocationsView extends StatelessWidget {
   //                               fontSize: 12
   //                             ),),
   //                           );
-  //                         }, 
+  //                         },
   //                         separatorBuilder: (context,index) => Divider(
   //                           color: Theme.of(context).colorScheme.tertiary,
   //                           indent: 40,

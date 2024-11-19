@@ -8,7 +8,12 @@ class EpisodeModel {
   final List<String> characters;
   final String url;
 
-  EpisodeModel({required this.id, required this.name, required this.episode, required this.characters, required this.url});
+  EpisodeModel(
+      {required this.id,
+      required this.name,
+      required this.episode,
+      required this.characters,
+      required this.url});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -26,13 +31,17 @@ class EpisodeModel {
     return EpisodeModel(
       id: map['id'] as int,
       name: map['name'] as String,
-      episode: 'Bölüm ${int.parse(episodeList[0])} Sezon ${int.parse(episodeList.last)}', // 'Bölüm ${episodeList[0]} Sezon ${episodeList.last}' / map['episode'] as String
-      characters: List<String>.from((map['characters'] as List),),
+      episode:
+          'Bölüm ${int.parse(episodeList[0])} Sezon ${int.parse(episodeList.last)}', // 'Bölüm ${episodeList[0]} Sezon ${episodeList.last}' / map['episode'] as String
+      characters: List<String>.from(
+        (map['characters'] as List),
+      ),
       url: map['url'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory EpisodeModel.fromJson(String source) => EpisodeModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory EpisodeModel.fromJson(String source) =>
+      EpisodeModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

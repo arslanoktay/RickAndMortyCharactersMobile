@@ -1,4 +1,3 @@
-
 import 'package:get_it/get_it.dart';
 import 'package:rickandmorty/services/api_service.dart';
 import 'package:rickandmorty/services/preferences_service.dart';
@@ -9,7 +8,8 @@ final locator = GetIt.instance;
 
 Future<void> setupLocator() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  locator.registerLazySingleton<PreferencesService>(() => PreferencesService(prefs: prefs));
+  locator.registerLazySingleton<PreferencesService>(
+      () => PreferencesService(prefs: prefs));
   locator.registerLazySingleton<ApiService>(() => ApiService());
   // herhangi bir yerde artık locator<ApiServise>() diyerek ulaa biliriz
 }

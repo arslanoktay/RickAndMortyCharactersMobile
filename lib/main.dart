@@ -4,7 +4,8 @@ import 'package:rickandmorty/app/router.dart';
 import 'package:rickandmorty/app/theme.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // flutter uyardı, asenkron başlatılacaksa bunu kullan dedi.
+  WidgetsFlutterBinding
+      .ensureInitialized(); // flutter uyardı, asenkron başlatılacaksa bunu kullan dedi.
   await setupLocator(); // getit ile DI sız ulaşım
   runApp(const MyApp());
 }

@@ -6,17 +6,18 @@ class CharactersModel {
   final List<CharacterModel> characters;
 
   CharactersModel({required this.info, required this.characters});
-  
+
   // ctor kendini döndürüyorsa factory'dir
   factory CharactersModel.fromJson(Map<String, dynamic> json) {
     final info = InfoModel.fromJson(json["info"]);
-    final characters = (json['results'] as List).map(
-      (characterJson) => CharacterModel.fromJson(characterJson),
-     ).toList();
+    final characters = (json['results'] as List)
+        .map(
+          (characterJson) => CharacterModel.fromJson(characterJson),
+        )
+        .toList();
 
-     return CharactersModel(info: info, characters: characters);
+    return CharactersModel(info: info, characters: characters);
   }
-     
 }
 
 class CharacterModel {
@@ -30,18 +31,26 @@ class CharacterModel {
   final Location location;
   final List<String> episode;
 
-  CharacterModel(this.origin, {required this.id, required this.name, required this.status, required this.species, required this.gender, required this.image, required this.location, required this.episode});
+  CharacterModel(this.origin,
+      {required this.id,
+      required this.name,
+      required this.status,
+      required this.species,
+      required this.gender,
+      required this.image,
+      required this.location,
+      required this.episode});
 
-  CharacterModel.fromJson(Map<String, dynamic> json):
-    id = json['id'],
-    name = json['name'],
-    status = json['status'],
-    species = json['species'],
-    gender = json['gender'],
-    image = json['image'],
-    location = Location.fromJson(json['location']),
-    episode = List<String>.from(json['episode']),
-    origin = Origin.fromJson(json['origin']);
+  CharacterModel.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        name = json['name'],
+        status = json['status'],
+        species = json['species'],
+        gender = json['gender'],
+        image = json['image'],
+        location = Location.fromJson(json['location']),
+        episode = List<String>.from(json['episode']),
+        origin = Origin.fromJson(json['origin']);
 }
 
 class Location {
@@ -50,9 +59,9 @@ class Location {
 
   Location({required this.name, required this.url});
 
-  Location.fromJson(Map<String,dynamic> json):
-    name = json['name'],
-    url = json['url'];
+  Location.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        url = json['url'];
 }
 
 class Origin {
@@ -61,7 +70,7 @@ class Origin {
 
   Origin({required this.name, required this.url});
 
-  Origin.fromJson(Map<String,dynamic> json)
-    : name = json['name'],
-      url = json['url'];
+  Origin.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        url = json['url'];
 }

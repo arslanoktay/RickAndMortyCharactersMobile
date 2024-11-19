@@ -13,5 +13,4 @@ class LocationViewmodel extends ChangeNotifier {
     _locationModel = await _apiService.getAllLocations();
     notifyListeners();
   }
-
 }

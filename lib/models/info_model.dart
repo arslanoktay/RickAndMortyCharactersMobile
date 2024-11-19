@@ -9,8 +9,11 @@ class InfoModel {
   final String? next;
   final String? prev;
 
-  InfoModel({required this.count, required this.pages, required this.next, required this.prev});
-
+  InfoModel(
+      {required this.count,
+      required this.pages,
+      required this.next,
+      required this.prev});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -32,5 +35,6 @@ class InfoModel {
 
   String toJson() => json.encode(toMap());
 
-  factory InfoModel.fromJson(String source) => InfoModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory InfoModel.fromJson(String source) =>
+      InfoModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

@@ -27,69 +27,52 @@ class AppRoutes {
 }
 
 final router = GoRouter(
-  navigatorKey: _routerKey,
-  initialLocation: AppRoutes.characters,
-  routes: [
-    StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) => AppView(navigationShell: navigationShell),
-      branches: [
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: AppRoutes.characters,
-              builder: (context, state) => ChangeNotifierProvider(
-                create: (context) => CharactgersViewmodel(),
-                child: const CharactersView(),
-              ),
-              routes: [
-                GoRoute(
-                  path: AppRoutes.profileRoute,
-                  builder: (context,state) => ChangeNotifierProvider(
-                    create: (context) => CharacterProfileViewmodel(),
-                    child: CharacterProfileView(
-                      characterModel: state.extra as CharacterModel,
-                    ),
-                  ),
-                )
-              ]
-             )
-          ]
-        ),
-
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: AppRoutes.favourites,
-              builder: (context, state) => ChangeNotifierProvider(
-                create: (context) => FavoritesViewmodel(),
-                child: const FavouritesView(),
-              )
-             )
-          ]
-        ),
-
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: AppRoutes.locations,
-              builder: (context, state) => ChangeNotifierProvider(
-                create: (context) => LocationViewmodel(),
-                child: const LocationsView(),
-              )
-             )
-          ]
-        ),
-
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: AppRoutes.sections,
-              builder: (context, state) => const SectionsView()
-             )
-          ]
-        )
-      ]
-    ),
-  ]
-  
-);
+    navigatorKey: _routerKey,
+    initialLocation: AppRoutes.characters,
+    routes: [
+      StatefulShellRoute.indexedStack(
+          builder: (context, state, navigationShell) =>
+              AppView(navigationShell: navigationShell),
+          branches: [
+            StatefulShellBranch(routes: [
+              GoRoute(
+                  path: AppRoutes.characters,
+                  builder: (context, state) => ChangeNotifierProvider(
+                        create: (context) => CharactgersViewmodel(),
+                        child: const CharactersView(),
+                      ),
+                  routes: [
+                    GoRoute(
+                      path: AppRoutes.profileRoute,
+                      builder: (context, state) => ChangeNotifierProvider(
+                        create: (context) => CharacterProfileViewmodel(),
+                        child: CharacterProfileView(
+                          characterModel: state.extra as CharacterModel,
+                        ),
+                      ),
+                    )
+                  ])
+            ]),
+            StatefulShellBranch(routes: [
+              GoRoute(
+                  path: AppRoutes.favourites,
+                  builder: (context, state) => ChangeNotifierProvider(
+                        create: (context) => FavoritesViewmodel(),
+                        child: const FavouritesView(),
+                      ))
+            ]),
+            StatefulShellBranch(routes: [
+              GoRoute(
+                  path: AppRoutes.locations,
+                  builder: (context, state) => ChangeNotifierProvider(
+                        create: (context) => LocationViewmodel(),
+                        child: const LocationsView(),
+                      ))
+            ]),
+            StatefulShellBranch(routes: [
+              GoRoute(
+                  path: AppRoutes.sections,
+                  builder: (context, state) => const SectionsView())
+            ])
+          ]),
+    ]);
