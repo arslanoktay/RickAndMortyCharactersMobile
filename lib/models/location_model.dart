@@ -20,7 +20,7 @@ class LocationModel {
     return LocationModel(
       info: InfoModel.fromMap(map['info'] as Map<String, dynamic>),
       locations: List<LocationItem>.from(
-        (map['locations'] as List<int>).map<LocationItem>(
+        (map['results'] as List).map<LocationItem>(
           (x) => LocationItem.fromMap(x as Map<String, dynamic>),
         ),
       ),
@@ -38,7 +38,7 @@ class LocationItem {
   final String name;
   final String type;
   final String dimension;
-  final List<String> residents;
+  final List residents;
   final String url;
 
   LocationItem(
@@ -66,8 +66,8 @@ class LocationItem {
         name: map['name'] as String,
         type: map['type'] as String,
         dimension: map['dimension'] as String,
-        residents: List<String>.from(
-          (map['residents'] as List<String>),
+        residents: List.from(
+          (map['residents'] as List),
         ),
         url: map['url'] as String);
   }

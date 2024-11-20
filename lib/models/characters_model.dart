@@ -9,7 +9,7 @@ class CharactersModel {
 
   // ctor kendini döndürüyorsa factory'dir
   factory CharactersModel.fromJson(Map<String, dynamic> json) {
-    final info = InfoModel.fromJson(json["info"]);
+    final info = InfoModel.fromMap(json["info"]);
     final characters = (json['results'] as List)
         .map(
           (characterJson) => CharacterModel.fromJson(characterJson),

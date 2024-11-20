@@ -18,8 +18,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
             onPressed: () {},
-            icon:
-                const Icon(Icons.settings)) // the button ıcondan rengi geliyor
+            icon: const Icon(Icons.settings)) // the button ıcondan rengi geliyor
       ],
     );
   }

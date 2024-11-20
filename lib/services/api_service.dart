@@ -49,7 +49,7 @@ class ApiService {
   Future<LocationModel> getAllLocations() async {
     try {
       final response = await _dio.get('/location');
-      return LocationModel.fromJson(response.data);
+      return LocationModel.fromMap(response.data);
     } catch (e) {
       rethrow;
     }
