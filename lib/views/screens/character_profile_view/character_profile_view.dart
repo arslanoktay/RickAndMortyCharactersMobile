@@ -35,6 +35,7 @@ class _CharacterProfileViewState extends State<CharacterProfileView> {
             transparentBackground: true,
           ),
           body: DecoratedContainer(
+            topChild: _characterAvatar(context),
               child: Column(
             crossAxisAlignment:
                 CrossAxisAlignment.stretch, // ters açıyı kaplamasını sağlar
@@ -49,21 +50,13 @@ class _CharacterProfileViewState extends State<CharacterProfileView> {
                           top: Radius.circular(50))),
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 13,
-                      ),
+                      const SizedBox(height: 13,),
                       _characterName(),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      const SizedBox(height: 15,),
                       _labelsView(context),
-                      const SizedBox(
-                        height: 38,
-                      ),
+                      const SizedBox(height: 38,),
                       _scenesTitle(),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      const SizedBox(height: 15,),
                       _episodeView()
                     ],
                   ),

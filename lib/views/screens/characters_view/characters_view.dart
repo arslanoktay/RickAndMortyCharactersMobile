@@ -20,8 +20,7 @@ class _CharactersViewState extends State<CharactersView> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<
-        CharactgersViewmodel>(); // kullanılacak yerin consumer altında kaldığı için buradan izlemek gerekiyor
+    final viewModel = context.watch<CharactgersViewmodel>(); // kullanılacak yerin consumer altında kaldığı için buradan izlemek gerekiyor
     return Scaffold(
       appBar: const AppbarWidget(title: 'Rick and Morty'),
       body: Center(
@@ -51,21 +50,14 @@ class _CharactersViewState extends State<CharactersView> {
       padding: const EdgeInsets.only(top: 12, bottom: 16),
       child: TextFormField(
         // Arama yeri / arama yapabilmek için textformfield oldu
-        textInputAction:
-            TextInputAction.search, // sağ alttaki icon buna göre belirleyecek
-        onFieldSubmitted: viewModel
-            .getCharactersByName, // TODO: buradaki parametre nasıl bağlanıyor?
+        textInputAction: TextInputAction.search, // sağ alttaki icon buna göre belirleyecek
+        onFieldSubmitted: viewModel.getCharactersByName,
         decoration: InputDecoration(
             hintText: "Karakterlerde Ara",
-            hintStyle:
-                TextStyle(color: Theme.of(context).colorScheme.onSurface),
+            hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             border: const OutlineInputBorder(),
-            prefixIcon: const Icon(Icons
-                .search), // en sola vermek için prefix kullandık sıralamada sağda çünkü
-            suffixIcon: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                    Icons.more_vert)) // Sağ tarafa eklemesi için suffix
+            prefixIcon: const Icon(Icons.search), // en sola vermek için prefix kullandık sıralamada sağda çünkü
+            suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)) // Sağ tarafa eklemesi için suffix
             ),
       ),
     );

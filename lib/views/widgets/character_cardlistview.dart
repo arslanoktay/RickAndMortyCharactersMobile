@@ -21,8 +21,7 @@ class CharacterCardlistview extends StatefulWidget {
 }
 
 class _CharacterCardListViewState extends State<CharacterCardlistview> {
-  final _scrollController =
-      ScrollController(); // ekran açıldığında listeyi dinlemey ealıcaz
+  final _scrollController = ScrollController(); // ekran açıldığında listeyi dinlemey ealıcaz
   bool _isLoading = true;
   List<int> _favoritedList = [];
 

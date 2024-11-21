@@ -20,10 +20,13 @@ class _LocationsViewState extends State<LocationsView> {
   }
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true, // background resmi appbar arkasına taşır
-        body: DecoratedContainer(child: Text("Yapilacak")),
+        body: DecoratedContainer(
+          topChild: const SizedBox(height: 18,),
+          child: _locationListView()
+        ),
       ),
     );
   }
