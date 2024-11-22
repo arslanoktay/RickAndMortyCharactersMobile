@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:rickandmorty/models/info_model.dart';
 
 class LocationModel {
-  final InfoModel info;
+  InfoModel info;
   final List<LocationItem> locations;
 
   LocationModel({required this.info, required this.locations});

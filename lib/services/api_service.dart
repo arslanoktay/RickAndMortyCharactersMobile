@@ -46,9 +46,9 @@ class ApiService {
     }
   }
 
-  Future<LocationModel> getAllLocations() async {
+  Future<LocationModel> getAllLocations({String? url}) async {
     try {
-      final response = await _dio.get('/location');
+      final response = await _dio.get(url ?? '/location');
       return LocationModel.fromMap(response.data);
     } catch (e) {
       rethrow;
