@@ -11,6 +11,7 @@ import 'package:rickandmorty/views/screens/favourites_view/favorites_viewmodel.d
 import 'package:rickandmorty/views/screens/favourites_view/favourites_view.dart';
 import 'package:rickandmorty/views/screens/locations_view.dart/location_viewmodel.dart';
 import 'package:rickandmorty/views/screens/locations_view.dart/locations_view.dart';
+import 'package:rickandmorty/views/screens/resident_view/resident_view.dart';
 import 'package:rickandmorty/views/screens/sections_view/sections_view.dart';
 
 final _routerKey = GlobalKey<NavigatorState>();
@@ -24,6 +25,10 @@ class AppRoutes {
 
   static const String profileRoute = 'characterprofile';
   static const String characterProfile = '/characterprofile';
+
+  static const String residentRoute = 'residents';
+  static const String residents = '/locations/residents';
+
 }
 
 final router = GoRouter(
@@ -67,7 +72,11 @@ final router = GoRouter(
                   builder: (context, state) => ChangeNotifierProvider(
                         create: (context) => LocationViewmodel(),
                         child: const LocationsView(),
-                      ))
+                  ),
+                  routes: [
+                    GoRoute(path: AppRoutes.residentRoute, builder: (context, state) => const ResidentView())
+                  ]
+                )
             ]),
             StatefulShellBranch(routes: [
               GoRoute(

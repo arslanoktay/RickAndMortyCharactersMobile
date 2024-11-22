@@ -32,7 +32,7 @@ class EpisodeModel {
       id: map['id'] as int,
       name: map['name'] as String,
       episode:
-          'Bölüm ${int.parse(episodeList[0])} Sezon ${int.parse(episodeList.last)}', // 'Bölüm ${episodeList[0]} Sezon ${episodeList.last}' / map['episode'] as String
+          'Sezon ${int.parse(episodeList[0])} Bölüm ${int.parse(episodeList.last)}', // 'Bölüm ${episodeList[0]} Sezon ${episodeList.last}' / map['episode'] as String
       characters: List<String>.from(
         (map['characters'] as List),
       ),
