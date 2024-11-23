@@ -11,5 +11,6 @@ class CharacterProfileViewmodel extends ChangeNotifier {
 
   void getEpisodes(List<String> urlList) async {
     _episodes = await _apiservise.getMultipleEpisodes(urlList);
+    notifyListeners();
   }
 }

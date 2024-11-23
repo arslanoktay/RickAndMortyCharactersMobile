@@ -28,7 +28,7 @@ class _LocationsViewState extends State<LocationsView> {
           title: 'Konumlar',
           transparentBackground: true,
         ),
-        body: DecoratedContainer( // TODO: muhtemelen bu bozuk
+        body: DecoratedContainer( 
             topChild: const SizedBox(height: 74,),
             child: _locationListView() 
           ),

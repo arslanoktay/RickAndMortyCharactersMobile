@@ -34,29 +34,15 @@ class _CharacterProfileViewState extends State<CharacterProfileView> {
           body: DecoratedContainer(
             topChild: _characterAvatar(context),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch, // ters açıyı kaplamasını sağlar
               children: [
-              _characterAvatar(context),
-              Expanded(
-                // container ı genişletebildiği kadar genişletiyor böylece kaplıyor görsel altta kaldı
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(50))),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 13,),
-                      _characterName(),
-                      const SizedBox(height: 15,),
-                      _labelsView(context),
-                      const SizedBox(height: 38,),
-                      _scenesTitle(),
-                      const SizedBox(height: 15,),
-                      _episodeView()
-                    ],
-                  ),
-                ),
-              )
+                const SizedBox(height: 13,),
+                _characterName(),
+                const SizedBox(height: 15,),
+                _labelsView(context),
+                const SizedBox(height: 38,),
+                _scenesTitle(),
+                const SizedBox(height: 15,),
+                _episodeView()
             ],
           ))),
     );
@@ -66,7 +52,6 @@ class _CharacterProfileViewState extends State<CharacterProfileView> {
     return Flexible(
       child: Consumer<CharacterProfileViewmodel>(
         builder: (context, viewModel, child) {
-          // characterprofileviewmodel ulaşmak için bununla wrapplemek gerekiyormuş
           return ListView.separated(
               padding: EdgeInsets.zero,
               itemCount: viewModel.episodes.length,
