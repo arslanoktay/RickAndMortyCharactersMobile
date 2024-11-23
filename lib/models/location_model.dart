@@ -62,14 +62,13 @@ class LocationItem {
 
   factory LocationItem.fromMap(Map<String, dynamic> map) {
     return LocationItem(
-        id: map['id'] as int,
-        name: map['name'] as String,
-        type: map['type'] as String,
-        dimension: map['dimension'] as String,
-        residents: List.from(
-          (map['residents'] as List),
-        ),
-        url: map['url'] as String);
+      id: map['id'] as int,
+      name: map['name'] as String,
+      type: map['type'] as String,
+      dimension: map['dimension'] as String,
+      residents: List.from((map['residents'] as List)),
+      url: map['url'] as String,
+    );
   }
 
   String toJson() => json.encode(toMap());

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DecoratedContainer extends StatelessWidget {
   final Widget child;
@@ -26,6 +25,7 @@ class DecoratedContainer extends StatelessWidget {
                   top: Radius.circular(50)
                 )
               ),
+              child: child
             ),
           ),
         ],

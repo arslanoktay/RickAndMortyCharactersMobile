@@ -17,9 +17,7 @@ class CharacterProfileView extends StatefulWidget {
 class _CharacterProfileViewState extends State<CharacterProfileView> {
   @override
   void initState() {
-    context
-        .read<CharacterProfileViewmodel>()
-        .getEpisodes(widget.characterModel.episode);
+    context.read<CharacterProfileViewmodel>().getEpisodes(widget.characterModel.episode);
     super.initState();
   }
 
@@ -28,26 +26,23 @@ class _CharacterProfileViewState extends State<CharacterProfileView> {
     return SafeArea(
       // sarj seviyesi gibi ksıımlardan kurtulmak için ekledik(background üstünde kalıyorlar bozuyorlar)
       child: Scaffold(
-          extendBodyBehindAppBar:
-              true, // backgroundimage appbar da kaplasın diye true yapıldı
+          extendBodyBehindAppBar: true, // backgroundimage appbar da kaplasın diye true yapıldı
           appBar: const AppbarWidget(
             title: 'Karakter',
             transparentBackground: true,
           ),
           body: DecoratedContainer(
             topChild: _characterAvatar(context),
-              child: Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.stretch, // ters açıyı kaplamasını sağlar
-            children: [
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch, // ters açıyı kaplamasını sağlar
+              children: [
               _characterAvatar(context),
               Expanded(
                 // container ı genişletebildiği kadar genişletiyor böylece kaplıyor görsel altta kaldı
                 child: Container(
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.surface,
-                      borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(50))),
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(50))),
                   child: Column(
                     children: [
                       const SizedBox(height: 13,),

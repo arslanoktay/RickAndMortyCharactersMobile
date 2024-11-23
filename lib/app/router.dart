@@ -9,8 +9,8 @@ import 'package:rickandmorty/views/screens/characters_view/characters_view.dart'
 import 'package:rickandmorty/views/screens/characters_view/charactgers_viewmodel.dart';
 import 'package:rickandmorty/views/screens/favourites_view/favorites_viewmodel.dart';
 import 'package:rickandmorty/views/screens/favourites_view/favourites_view.dart';
-import 'package:rickandmorty/views/screens/locations_view.dart/location_viewmodel.dart';
-import 'package:rickandmorty/views/screens/locations_view.dart/locations_view.dart';
+import 'package:rickandmorty/views/screens/locations_view/location_viewmodel.dart';
+import 'package:rickandmorty/views/screens/locations_view/locations_view.dart';
 import 'package:rickandmorty/views/screens/resident_view/resident_view.dart';
 import 'package:rickandmorty/views/screens/sections_view/sections_view.dart';
 
