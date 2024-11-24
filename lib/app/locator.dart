@@ -10,8 +10,7 @@ Future<void> setupLocator() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   locator.registerLazySingleton<PreferencesService>(
       () => PreferencesService(prefs: prefs));
-  locator.registerLazySingleton<ApiService>(() => ApiService());
-  // herhangi bir yerde artık locator<ApiServise>() diyerek ulaa biliriz
+  locator.registerLazySingleton<ApiService>(() => ApiService()); // herhangi bir yerde artık locator<ApiServise>() diyerek ulaa biliriz
 }
 
 // registerSingelton bir nesne luşur sürekli aynı nesne gelir.
