@@ -3,8 +3,16 @@ import 'package:rickandmorty/app/locator.dart';
 import 'package:rickandmorty/models/characters_model.dart';
 import 'package:rickandmorty/services/api_service.dart';
 
+enum CharacterType {
+  all,
+  alive,
+  dead,
+  unknown
+}
+
 class CharactgersViewmodel extends ChangeNotifier {
   // changenotifer metotlar sunar dinleme gibi
+  CharacterType characterType = CharacterType.all;
 
   final _apiService = locator<ApiService>();
 
@@ -55,6 +63,19 @@ class CharactgersViewmodel extends ChangeNotifier {
   void getCharactersByName(String name) async {
     clearCharacters();
     _charactersModel = await _apiService.getCharacters(args: {'name': name});
+    notifyListeners();
+  }
+
+  void onCharacterTypeChanged(CharacterType type) async {
+    characterType = type;
+    clearCharacters();
+
+    Map<String,dynamic> args = {};
+    if( type !=  CharacterType.all) {
+      args = {'status' : type.name};
+    }
+
+    _charactersModel = await _apiService.getCharacters(args: args);
     notifyListeners();
   }
 }

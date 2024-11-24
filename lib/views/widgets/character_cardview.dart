@@ -56,31 +56,35 @@ class _CharacterCardViewState extends State<CharacterCardView> {
                         ),
                       ) // doğru image değil ölçeklendirme hatası olabilir sayfaya bağlanmıyor
                       ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 6, horizontal: 17),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(widget.characterModel.name,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            )),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        _infoWidget(
-                            typeFirst: 'Köken',
-                            value: widget.characterModel.species),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        _infoWidget(
-                            typeFirst: 'Durum',
-                            value:
-                                '${widget.characterModel.status} - ${widget.characterModel.species}')
-                      ],
+                  Flexible(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(vertical: 6, horizontal: 17),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(widget.characterModel.name,
+                              maxLines: 1,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                overflow: TextOverflow.fade
+                              )),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          _infoWidget(
+                              typeFirst: 'Köken',
+                              value: widget.characterModel.species),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          _infoWidget(
+                              typeFirst: 'Durum',
+                              value:
+                                  '${widget.characterModel.status} - ${widget.characterModel.species}')
+                        ],
+                      ),
                     ),
                   )
                 ],

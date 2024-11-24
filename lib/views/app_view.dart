@@ -47,7 +47,7 @@ class AppView extends StatelessWidget {
                   currentIndex: navigationShell.currentIndex,
                   index: 3,
                   icon: Icons.menu,
-                  label: 'Menu'),
+                  label: 'Bölümler'),
               // En başta görünsün diye direk eklemiştik iptal
               // NavigationDestination(icon: Icon(Icons.face), label: 'Karakterler'),
               // NavigationDestination(icon: Icon(Icons.bookmark), label: 'Favorilerim'),

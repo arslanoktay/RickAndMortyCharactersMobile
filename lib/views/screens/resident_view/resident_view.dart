@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rickandmorty/app/router.dart';
 import 'package:rickandmorty/models/location_model.dart';
 import 'package:rickandmorty/views/screens/resident_view/resident_viewmodel.dart';
 import 'package:rickandmorty/views/widgets/appbar_widget.dart';

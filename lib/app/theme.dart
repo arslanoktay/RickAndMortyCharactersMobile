@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
+class AppTheme extends ChangeNotifier {
   // Yeni nesne yaratılmasından kurtulmak için bu şekilde kullanıyoruz
-  AppTheme._();
+  ThemeMode themeMode = ThemeMode.system; // telefon temasını oto alır / varsayılan system teması yani
+  ThemeData get theme => themeMode == ThemeMode.light ? lightTheme : darkTheme;
+  void toggleTheme() {
+    themeMode = themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    notifyListeners();
+  }
 
   static ThemeData get lightTheme => ThemeData(
         fontFamily: 'Inter',
@@ -20,5 +25,21 @@ class AppTheme {
         iconButtonTheme: IconButtonThemeData(
             style:
                 IconButton.styleFrom(foregroundColor: const Color(0xFF42B4CA))),
+      );
+
+  static ThemeData get darkTheme => ThemeData(
+        fontFamily: 'Inter',
+        scaffoldBackgroundColor: const Color(0xFF414A4C),
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFF97C3E9), // hex kodlarında başına 0x geliyor / 0xFF dersek opaklığı max oluyor
+          secondary: Color(0xFF778899),
+          surface: Color(0xFF414A4C),
+          onSurface: Colors.white, // Yazı arkası arka plan
+          error: Color(0xFF414A4C),
+          tertiary: Color(0xFFB5C4C7) 
+        ),
+        iconButtonTheme: IconButtonThemeData(
+            style:
+                IconButton.styleFrom(foregroundColor: const Color(0xFF97C3E9))),
       );
 }

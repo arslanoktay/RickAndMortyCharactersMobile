@@ -57,7 +57,17 @@ class _CharactersViewState extends State<CharactersView> {
             hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             border: const OutlineInputBorder(),
             prefixIcon: const Icon(Icons.search), // en sola vermek için prefix kullandık sıralamada sağda çünkü
-            suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)) // Sağ tarafa eklemesi için suffix
+            suffixIcon: PopupMenuButton(
+              icon: const Icon(Icons.more_vert),
+              onSelected:  viewModel.onCharacterTypeChanged ,
+              itemBuilder: (context) {
+                return CharacterType.values
+                .map(
+                  (e) =>  PopupMenuItem<CharacterType>(
+                      value: e,
+                      child: Text(e.name)),).toList();
+              },
+            )
             ),
       ),
     );

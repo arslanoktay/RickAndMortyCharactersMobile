@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:rickandmorty/models/characters_model.dart';
+import 'package:rickandmorty/models/episode_model.dart';
 import 'package:rickandmorty/models/location_model.dart';
 import 'package:rickandmorty/views/app_view.dart';
 import 'package:rickandmorty/views/screens/character_profile_view/character_profile_view.dart';
@@ -14,7 +15,12 @@ import 'package:rickandmorty/views/screens/locations_view/location_viewmodel.dar
 import 'package:rickandmorty/views/screens/locations_view/locations_view.dart';
 import 'package:rickandmorty/views/screens/resident_view/resident_view.dart';
 import 'package:rickandmorty/views/screens/resident_view/resident_viewmodel.dart';
+import 'package:rickandmorty/views/screens/section_characters_view/section_character_view.dart';
+import 'package:rickandmorty/views/screens/section_characters_view/section_character_viewmodel.dart';
 import 'package:rickandmorty/views/screens/sections_view/sections_view.dart';
+import 'package:rickandmorty/views/screens/sections_view/sections_viewmodel.dart';
+import 'package:rickandmorty/views/screens/settings_view/settings_view.dart';
+import 'package:rickandmorty/views/screens/settings_view/settings_viewmodel.dart';
 
 final _routerKey = GlobalKey<NavigatorState>();
 
@@ -31,6 +37,10 @@ class AppRoutes {
   static const String residentRoute = 'residents';
   static const String residents = '/locations/residents';
 
+  static const String sectionCharactersRoute = 'characters';
+  static const String sectionCharacters = '/sections/characters';
+
+  static const String settings = '/settings';
 }
 
 final router = GoRouter(
@@ -89,7 +99,30 @@ final router = GoRouter(
             StatefulShellBranch(routes: [
               GoRoute(
                   path: AppRoutes.sections,
-                  builder: (context, state) => const SectionsView())
-            ])
+                  builder: (context, state) => ChangeNotifierProvider(
+                    create: (context) => SectionsViewmodel(),
+                    child: const SectionsView(),
+                  ),
+                  routes: [
+                    GoRoute(
+                      path: AppRoutes.sectionCharactersRoute,
+                      builder: (context,state) => ChangeNotifierProvider(
+                        create: (context) => SectionCharacterViewmodel(),
+                        child: SectionCharactersView(
+                          episodeModel: state.extra as EpisodeModel),
+                      )
+                    )
+                  ]
+                  
+                  
+            )])
           ]),
+      
+      GoRoute(
+        path: AppRoutes.settings,
+        builder: (context, state) => ChangeNotifierProvider(
+          create: (context) => SettingsViewmodel(),
+          child: const SettingsView(),
+        )
+      )
     ]);

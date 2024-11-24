@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:rickandmorty/app/router.dart';
 
 class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool transparentBackground;
+  final bool hideSettings;
   const AppbarWidget(
-      {super.key, required this.title, this.transparentBackground = false});
+      {super.key, required this.title, this.transparentBackground = false,  this.hideSettings = false});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +19,9 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       // Text sonrası rowda gösterilen widgetler. Genelde Iconbutton, popupmenu vb.
       actions: [
+        if (!hideSettings)
         IconButton(
-            onPressed: () {},
+            onPressed: () => context.push(AppRoutes.settings),
             icon: const Icon(Icons.settings)) // the button ıcondan rengi geliyor
       ],
     );
